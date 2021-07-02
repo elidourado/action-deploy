@@ -34,4 +34,6 @@ fi
 # Export outputs
 echo "$output"
 deployUrl=$(echo "$output" | grep -Eo 'https://[^ >]+' | head -1)
+cid=$(echo "$output" | grep -Eo 'cid is [^ >]+' | head -1 | sed 's/cid is //')
 echo "::set-output name=deployUrl::$deployUrl"
+echo "::set-output name=cid::cid"
